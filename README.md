@@ -1,16 +1,35 @@
-# magic_macro
-preview c macros
+# magic\_macro
 
-### install
-add the file to your `~/.config/nvim/lua` directory and add the following lines to your `init.lua` (you can change the keymap):
-```
-require("magic_macro")
-vim.api.nvim_set_keymap("v", "<leader>M", ":lua Magic.do_the_magic()<CR>", {})
+preview c macros.
+
+## Required dependencies
+
+c formater for `vim.lsp.buf.format()`
+
+## Installation
+
+`lazy.nvim`
+```lua
+{
+    "numen-0/magic_macro",
+    config = function()
+        vim.api.nvim_set_keymap("v", "<leader>mm", require("magic_macro").do_the_magic, {})
+    end,
+}
+
 ```
 
-### use
-select the macro you want to view
+## Usage
+
+1. select (in visual mode) the macro you want to preview
+
 ![select](img/select.png)
 
-do the thing
+2. execute `do_the_magic()`
+
 ![magic](img/magic.png)
+
+Font: [maple](https://github.com/subframe7536/Maple-font)
+
+Full-setup: [.dotfiles/nvim](https://github.com/numen-0/.dotfiles/tree/main/nvim)
+
